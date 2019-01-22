@@ -8,10 +8,11 @@ class TodoComponent extends Component {
 
   render() {
     return (
-      <div onClick={this.handleClick} className="container" style={{"background-color": this.props.todo.done ? "red" : "blue"}}>
+      <div className="container" style={{"background-color": this.props.todo.done ? "red" : "blue"}}>
         <p>
           {this.props.todo.title}
         </p>
+        <button onClick={this.props.onDeleteClick}> Delete </button>
       </div>
     );
   }

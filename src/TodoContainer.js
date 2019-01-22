@@ -11,6 +11,7 @@ class TodoContainer extends Component {
     this.state = {modalOpen: false, todos: []}
     this.handleAddClick = this.handleAddClick.bind(this)
     this.handleClose = this.handleClose.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   handleAddClick() {
@@ -21,13 +22,17 @@ class TodoContainer extends Component {
     this.setState({modalOpen: false})
   }
 
+  handleDelete(todo) {
+    this.setState(this.setState(state => ({todos: this.state.todos.filter(todo => todo.id !== 1 )})))
+  }
+
 
   render() {
     return (
       <div className="container">
         <h2> Todos </h2>
         <ul>
-          {this.state.todos.map((todo) => <li key={todo.id}> <TodoComponent todo={todo}/> </li>)}
+          {this.state.todos.map((todo) => <li key={todo.id}> <TodoComponent todo={todo} onDeleteClick={this.handleDelete} /> </li>)}
         </ul>
         <AddButton onAddClick={this.handleAddClick}/>
         <Modal open={this.state.modalOpen} onCloseClick={this.handleClose}/>
