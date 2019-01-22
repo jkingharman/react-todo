@@ -1,3 +1,5 @@
+import Todos from "./Todos"
+
 class Todo {
     constructor(title, note) {
       this.title = title
