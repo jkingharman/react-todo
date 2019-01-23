@@ -7,6 +7,10 @@ class Todo {
       this.createdAt = new Date()
   }
 
+  updateStatus() {
+    this.done = !this.done
+  }
+
 }
 
 export default Todo;

@@ -4,12 +4,18 @@ class TodoComponent extends Component {
 
   constructor(props) {
     super(props)
+    this.state = {todoDone: this.props.todo.done}
+    this.handleClick = this.handleClick.bind(this)
+  }
 
+  handleClick() {
+    this.props.todo.updateStatus()
+    this.setState({todoDone: !this.state.todoDone})
   }
 
   render() {
     return (
-      <div className="container" style={{"backgroundColor": this.props.todo.done ? "red" : "blue"}}>
+      <div className="container" onClick={this.handleClick} style={{"backgroundColor": this.state.todoDone ? "red" : "blue"}}>
         <p>
           {this.props.todo.title}
         </p>
