@@ -9,14 +9,21 @@ class Todo {
       this.createdAt = new Date()
   }
 
-  updateStatus() {
+  updateDoneStatus() {
     this.done = !this.done
+  }
+
+  getDoneStatus() {
+    return this.done
+  }
+
+  getId() {
+    return this.id
   }
 
   setId() {
     return startingID++
   }
-
 }
 
 export default Todo;

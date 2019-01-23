@@ -35,7 +35,7 @@ class Modal extends Component {
 
   render(props) {
     return (
-      <div style={{display: this.props.open ? "block" : "none"}}>
+      <div style={{display: this.props.isOpen ? "block" : "none"}}>
       <p> Test </p>
       <textarea value={this.state.note} onChange={this.handleNoteChange}> </textarea>
       <textarea value={this.state.title} onChange={this.handleTitleChange}> </textarea>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Modal from './Modal';
-import ModalButton from './AddButton';
+import ModalButton from './ModalButton';
 import Todo from './Todo';
 import TodoComponent from './TodoComponent';
 
@@ -9,21 +9,14 @@ class TodoContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {modalOpen: false, todos: []}
-    this.handleAdd = this.handleAdd.bind(this)
+    this.handleOpen = this.handleOpen.bind(this)
     this.handleClose = this.handleClose.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
-    this.handleModalAdd = this.handleModalAdd.bind(this)
+    this.handleTodoAdd = this.handleTodoAdd.bind(this)
   }
 
   handleOpen() {
     this.setState({modalOpen: true})
-  }
-
-  handleModalAdd() {
-    let todoNote = arguments[0]
-    let todoTitle = arguments[1]
-    this.setState(state => ({todos: this.state.todos.concat(new Todo(todoNote, todoTitle))}))
-    this.handleClose()
   }
 
   handleClose() {
@@ -35,6 +28,11 @@ class TodoContainer extends Component {
     this.setState(state => ({todos: this.state.todos.filter(todo => todo.id !== todoId)}))
   }
 
+  handleTodoAdd() {
+    let todoNote = arguments[0]
+    let todoTitle = arguments[1]
+    this.setState(state => ({todos: this.state.todos.concat(new Todo(todoNote, todoTitle)), modalOpen: false}))
+  }
 
   render() {
     return (
@@ -42,11 +40,11 @@ class TodoContainer extends Component {
         <h2> Todos </h2>
         <ul>
           {this.state.todos.map((todo) =>
-            <li key={todo.id}> <TodoComponent todo={todo} onDeleteClick={this.handleDelete} /> </li>
+            <li key={todo.id}> <TodoComponent todo={todo} onDelete={this.handleDelete} /> </li>
           )}
         </ul>
         <ModalButton onClick={this.handleOpen}/>
-        <Modal open={this.state.modalOpen} onClose={this.handleClose} onAdd={this.handleModalAdd}/>
+        <Modal isOpen={this.state.modalOpen} onClose={this.handleClose} onAdd={this.handleTodoAdd}/>
       </div>
     );
   }
