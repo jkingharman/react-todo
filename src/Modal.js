@@ -6,7 +6,7 @@ class Modal extends Component {
     return (
       <div style={{display: this.props.open ? "block" : "none"}}>
       <p> Test </p>
-      <button onClick={this.props.onCloseClick}> </button> 
+      <button onClick={this.props.onClose}> </button> 
       </div>
     );
   }

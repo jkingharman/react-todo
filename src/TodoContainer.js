@@ -9,12 +9,12 @@ class TodoContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {modalOpen: false, todos: []}
-    this.handleAddClick = this.handleAddClick.bind(this)
+    this.handleAdd = this.handleAdd.bind(this)
     this.handleClose = this.handleClose.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
   }
 
-  handleAddClick() {
+  handleAdd() {
     this.setState(state => ({todos: this.state.todos.concat(new Todo("first", "test"))}))
   }
 
@@ -37,8 +37,8 @@ class TodoContainer extends Component {
             <li key={todo.id}> <TodoComponent todo={todo} onDeleteClick={this.handleDelete} /> </li>
           )}
         </ul>
-        <AddButton onAddClick={this.handleAddClick}/>
-        <Modal open={this.state.modalOpen} onCloseClick={this.handleClose}/>
+        <AddButton onClick={this.handleAdd}/>
+        <Modal open={this.state.modalOpen} onClose={this.handleClose}/>
       </div>
     );
   }

@@ -4,6 +4,7 @@ class TodoComponent extends Component {
 
   constructor(props) {
     super(props)
+
   }
 
   render() {
@@ -12,7 +13,7 @@ class TodoComponent extends Component {
         <p>
           {this.props.todo.title}
         </p>
-        <button todoid={this.props.todo.id} onClick={this.props.onDeleteClick.bind(null, this.props.todo.id)}> Delete </button>
+        <button onClick={this.props.onDeleteClick.bind(null, this.props.todo.id)}> Delete </button>
       </div>
     );
   }
