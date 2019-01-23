@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Add from '@material-ui/icons/Add.js';
+import Close from '@material-ui/icons/Close.js';
 
 class Modal extends Component {
 
@@ -61,11 +63,10 @@ class Modal extends Component {
   render(props) {
     return (
       <div style={{display: this.props.isOpen ? "block" : "none"}}>
-      <p> Test </p>
       <textarea value={this.state.note} onChange={this.handleNoteChange}> </textarea>
       <textarea value={this.state.title} onChange={this.handleTitleChange}> </textarea>
-      <button style={{display: !this.state.validationFail ? "block" : "none"}} onClick={this.handleAdd}> Update </button>
-      <button onClick={this.handleClose}> Close </button>
+      <Add style={{display: !this.state.validationFail ? "block" : "none"}} onClick={this.handleAdd}/>
+      <Close onClick={this.handleClose}/>
 
       <div style={{display: this.state.validationFail ? "block" : "none"}}>
         Input can't be blank
