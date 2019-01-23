@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
+import AddBox from '@material-ui/icons/AddBox.js';
 class ModalButton extends Component {
 
   render() {
     return (
-      <button onClick={this.props.onClick}> </button>
+      <AddBox onClick={this.props.onClick}/>
     );
   }
 }

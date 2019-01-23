@@ -64,11 +64,11 @@ class Modal extends Component {
       <p> Test </p>
       <textarea value={this.state.note} onChange={this.handleNoteChange}> </textarea>
       <textarea value={this.state.title} onChange={this.handleTitleChange}> </textarea>
-      <button onClick={this.handleAdd}> Update </button>
+      <button style={{display: !this.state.validationFail ? "block" : "none"}} onClick={this.handleAdd}> Update </button>
       <button onClick={this.handleClose}> Close </button>
 
       <div style={{display: this.state.validationFail ? "block" : "none"}}>
-        Fail
+        Input can't be blank
       </div>
       </div>
     );
