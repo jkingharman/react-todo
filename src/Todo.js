@@ -1,6 +1,8 @@
+let startingID = 0
+
 class Todo {
     constructor(title, note) {
-      this.id = 1
+      this.id = this.setId()
       this.title = title
       this.note = note
       this.done = false
@@ -9,6 +11,10 @@ class Todo {
 
   updateStatus() {
     this.done = !this.done
+  }
+
+  setId() {
+    return startingID++
   }
 
 }

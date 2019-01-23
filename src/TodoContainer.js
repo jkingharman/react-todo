@@ -12,10 +12,17 @@ class TodoContainer extends Component {
     this.handleAdd = this.handleAdd.bind(this)
     this.handleClose = this.handleClose.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleModalAdd = this.handleModalAdd.bind(this)
   }
 
   handleAdd() {
-    this.setState(state => ({todos: this.state.todos.concat(new Todo("first", "test"))}))
+    this.setState({modalOpen: true})
+  }
+
+  handleModalAdd() {
+    let todoNote = arguments[0]
+    let todoTitle = arguments[1]
+    this.setState(state => ({todos: this.state.todos.concat(new Todo(todoNote, todoTitle))}))
   }
 
   handleClose() {
@@ -38,7 +45,7 @@ class TodoContainer extends Component {
           )}
         </ul>
         <AddButton onClick={this.handleAdd}/>
-        <Modal open={this.state.modalOpen} onClose={this.handleClose}/>
+        <Modal open={this.state.modalOpen} onClose={this.handleClose} onAdd={this.handleModalAdd}/>
       </div>
     );
   }
