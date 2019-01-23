@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Modal from './Modal';
-import AddButton from './AddButton';
+import ModalButton from './AddButton';
 import Todo from './Todo';
 import TodoComponent from './TodoComponent';
 
@@ -15,7 +15,7 @@ class TodoContainer extends Component {
     this.handleModalAdd = this.handleModalAdd.bind(this)
   }
 
-  handleAdd() {
+  handleOpen() {
     this.setState({modalOpen: true})
   }
 
@@ -45,7 +45,7 @@ class TodoContainer extends Component {
             <li key={todo.id}> <TodoComponent todo={todo} onDeleteClick={this.handleDelete} /> </li>
           )}
         </ul>
-        <AddButton onClick={this.handleAdd}/>
+        <ModalButton onClick={this.handleOpen}/>
         <Modal open={this.state.modalOpen} onClose={this.handleClose} onAdd={this.handleModalAdd}/>
       </div>
     );

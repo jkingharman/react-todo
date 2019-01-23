@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class AddButton extends Component {
+class ModalButton extends Component {
 
   render() {
     return (
@@ -9,4 +9,4 @@ class AddButton extends Component {
   }
 }
 
-export default AddButton;
+export default ModalButton;
