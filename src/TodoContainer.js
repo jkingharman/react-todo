@@ -9,18 +9,13 @@ class TodoContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {modalOpen: false, todos: []}
-    this.handleOpen = this.handleOpen.bind(this)
-    this.handleClose = this.handleClose.bind(this)
+    this.handleClick = this.handleClick.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
     this.handleTodoAdd = this.handleTodoAdd.bind(this)
   }
 
-  handleOpen() {
-    this.setState({modalOpen: true})
-  }
-
-  handleClose() {
-    this.setState({modalOpen: false})
+  handleClick() {
+    this.setState({modalOpen: !this.state.modalOpen})
   }
 
   handleDelete() {
@@ -43,8 +38,8 @@ class TodoContainer extends Component {
             <li key={todo.id}> <TodoComponent todo={todo} onDelete={this.handleDelete} /> </li>
           )}
         </ul>
-        <ModalButton onClick={this.handleOpen}/>
-        <Modal isOpen={this.state.modalOpen} onClose={this.handleClose} onAdd={this.handleTodoAdd}/>
+        <ModalButton onClick={this.handleClick}/>
+        <Modal isOpen={this.state.modalOpen} onClose={this.handleClick} onAdd={this.handleTodoAdd}/>
       </div>
     );
   }
