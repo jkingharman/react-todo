@@ -18,7 +18,7 @@ class Modal extends Component {
   }
 
   todoIsValid() {
-    if (this.state.note !== "" && this.state.title !== "") {
+    if ((this.state.note !== "" && this.state.title !== "") && (this.state.note.length <= 200 && this.state.note.length <= 200))  {
       return true
     }
   }
