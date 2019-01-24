@@ -14,7 +14,7 @@ class Modal extends Component {
   }
 
   clearInputs() {
-    this.setState({note: "", title: "", validationFail: false})
+    this.setState({note: "", title: ""})
   }
 
   todoIsValid() {
@@ -28,7 +28,7 @@ class Modal extends Component {
       {validationFail: !this.state.validationFail}, () => {
         setTimeout(() => this.setState(
         {validationFail: !this.state.validationFail}
-          ), 5000)
+      ), 1500)
       }
     )
   }
