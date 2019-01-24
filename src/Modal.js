@@ -62,15 +62,14 @@ class Modal extends Component {
 
   render(props) {
     return (
-      <div style={{display: this.props.isOpen ? "block" : "none"}}>
-      <textarea value={this.state.note} onChange={this.handleNoteChange}> </textarea>
-      <textarea value={this.state.title} onChange={this.handleTitleChange}> </textarea>
-      <Add style={{display: !this.state.validationFail ? "block" : "none"}} onClick={this.handleAdd}/>
-      <Close onClick={this.handleClose}/>
-
-      <div style={{display: this.state.validationFail ? "block" : "none"}}>
-        Input can't be blank
+      <div className="modal" overlayClassName="overlay" style={{display: this.props.isOpen ? "block" : "none"}}>
+      <input placeholder="Todo note" value={this.state.note} onChange={this.handleNoteChange}/>
+      <input placeholder="Todo title" value={this.state.title} onChange={this.handleTitleChange}/>
+      <div className="flash" style={{display: this.state.validationFail ? "block" : "none"}}>
+        Input can't be blank!
       </div>
+      <Add className="svg" style={{display: !this.state.validationFail ? "inline" : "none"}} onClick={this.handleAdd}/>
+      <Close className="svg" onClick={this.handleClose}/>
       </div>
     );
   }
