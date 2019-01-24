@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Delete from '@material-ui/icons/Delete.js';
 
 class TodoComponent extends Component {
 
@@ -15,11 +16,12 @@ class TodoComponent extends Component {
 
   render() {
     return (
-      <div className="container" onClick={this.handleClick} style={{"backgroundColor": this.state.todoDone ? "red" : "blue"}}>
+      <div className="Todo" onClick={this.handleClick} style={{"backgroundColor": this.state.todoDone ? "red" : "white"}}>
+        <h4> {this.props.todo.title} </h4>
         <p>
-          Todo content here
+          {this.props.todo.note}
         </p>
-        <button onClick={this.props.onDelete.bind(null, this.props.todo.getId())}> Delete </button>
+        <Delete style={{"margin-left": "300px"}} onClick={this.props.onDelete.bind(null, this.props.todo.getId())}/>
       </div>
     );
   }

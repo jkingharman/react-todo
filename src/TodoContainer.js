@@ -26,7 +26,7 @@ class TodoContainer extends Component {
   handleTodoAdd() {
     let todoNote = arguments[0]
     let todoTitle = arguments[1]
-    this.setState(state => ({todos: this.state.todos.concat(new Todo(todoNote, todoTitle)), modalOpen: false}))
+    this.setState(state => ({todos: this.state.todos.concat(new Todo(todoTitle, todoNote)), modalOpen: false}))
   }
 
   render() {
