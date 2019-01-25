@@ -15,7 +15,7 @@ class Modal extends Component {
     return (
       <div
         className="Modal"
-        overlayClassName="Overlay"
+        overlayclassname="Overlay"
         style={{ display: this.props.isOpen ? "block" : "none" }}
       >
         {this.props.children}

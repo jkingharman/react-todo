@@ -23,7 +23,7 @@ class TodoComponent extends Component {
         <h4> {this.props.todo.title} </h4>
         <p>{this.props.todo.note}</p>
         <Delete
-          style={{ "margin-left": "300px" }}
+          style={{ "marginLeft": "300px" }}
           onClick={this.props.onDelete.bind(null, this.props.todo.getId())}
         />
       </div>
