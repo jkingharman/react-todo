@@ -20,7 +20,7 @@ class Todo {
   }
 
   setId() {
-    return this.startingID++;
+    return this.startingId++;
   }
 }
 
