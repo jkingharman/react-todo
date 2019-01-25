@@ -18,7 +18,7 @@ class TodoComponent extends Component {
       <div
         className="Todo"
         onClick={this.handleClick}
-        style={{ backgroundColor: this.state.todoDone ? "red" : "white" }}
+        style={{ backgroundColor: this.state.todoDone ? "#1abc9c" : "white" }}
       >
         <h4> {this.props.todo.title} </h4>
         <p>{this.props.todo.note}</p>
