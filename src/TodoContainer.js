@@ -41,7 +41,7 @@ class TodoContainer extends Component {
         <ul>
           {this.state.todos.map(todo => (
             <li key={todo.id}>
-              <TodoComponent todo={todo} onDelete={this.handleDelete} />  
+              <TodoComponent todo={todo} onDelete={this.handleDelete} />
             </li>
           ))}
         </ul>

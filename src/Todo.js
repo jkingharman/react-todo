@@ -1,12 +1,10 @@
-let startingID = 0;
-
 class Todo {
   constructor(title, note) {
+    this.startingId = 0;
     this.id = this.setId();
     this.title = title;
     this.note = note;
     this.done = false;
-    this.createdAt = new Date();
   }
 
   updateDoneStatus() {

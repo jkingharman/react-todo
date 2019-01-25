@@ -11,9 +11,7 @@ class TodoInput extends Component {
   }
 
   componentWillReceiveProps() {
-    if (this.props.modalIsOpen === false) {
-      this.clearInputs();
-    }
+    if (this.props.modalIsOpen === false) { this.clearInputs() }
   }
 
   clearInputs() {
