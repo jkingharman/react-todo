@@ -3,6 +3,7 @@ import Modal from './Modal';
 import ModalButton from './ModalButton';
 import Todo from './Todo';
 import TodoComponent from './TodoComponent';
+import TodoInput from './TodoInput';
 
 class TodoContainer extends Component {
 
@@ -39,7 +40,9 @@ class TodoContainer extends Component {
           )}
         </ul>
         <ModalButton onClick={this.handleClick}/>
-        <Modal isOpen={this.state.modalOpen} onClose={this.handleClick} onAdd={this.handleTodoAdd}/>
+        <Modal isOpen={this.state.modalOpen} onClose={this.handleClick}>
+          <TodoInput onAdd={this.handleTodoAdd} modalIsOpen={this.state.modalOpen}/>
+        </Modal>
       </div>
     );
   }
