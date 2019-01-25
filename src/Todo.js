@@ -1,28 +1,28 @@
-let startingID = 0
+let startingID = 0;
 
 class Todo {
-    constructor(title, note) {
-      this.id = this.setId()
-      this.title = title
-      this.note = note
-      this.done = false
-      this.createdAt = new Date()
+  constructor(title, note) {
+    this.id = this.setId();
+    this.title = title;
+    this.note = note;
+    this.done = false;
+    this.createdAt = new Date();
   }
 
   updateDoneStatus() {
-    this.done = !this.done
+    this.done = !this.done;
   }
 
   getDoneStatus() {
-    return this.done
+    return this.done;
   }
 
   getId() {
-    return this.id
+    return this.id;
   }
 
   setId() {
-    return startingID++
+    return startingID++;
   }
 }
 

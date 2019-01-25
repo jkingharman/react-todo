@@ -1,22 +1,25 @@
-import React, { Component } from 'react';
-import Close from '@material-ui/icons/Close.js';
+import React, { Component } from "react";
+import Close from "@material-ui/icons/Close.js";
 
 class Modal extends Component {
-
   constructor(props) {
-    super(props)
-    this.handleClose = this.handleClose.bind(this)
+    super(props);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   handleClose() {
-    this.props.onClose()
+    this.props.onClose();
   }
 
   render(props) {
     return (
-      <div className="Modal" overlayClassName="Overlay" style={{display: this.props.isOpen ? "block" : "none"}}>
+      <div
+        className="Modal"
+        overlayClassName="Overlay"
+        style={{ display: this.props.isOpen ? "block" : "none" }}
+      >
         {this.props.children}
-        <Close onClick={this.handleClose}/>
+        <Close onClick={this.handleClose} />
       </div>
     );
   }
