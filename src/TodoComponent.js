@@ -20,10 +20,10 @@ class TodoComponent extends Component {
         onClick={this.handleClick}
         style={{ backgroundColor: this.state.todoDone ? "#1abc9c" : "white" }}
       >
-        <h4> {this.props.todo.title} </h4>
+        <h4>{this.props.todo.title}</h4>
         <p>{this.props.todo.note}</p>
         <Delete
-          style={{ "marginLeft": "300px" }}
+          style={{ marginLeft: "300px" }}
           onClick={this.props.onDelete.bind(null, this.props.todo.getId())}
         />
       </div>

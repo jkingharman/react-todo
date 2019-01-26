@@ -3,7 +3,7 @@ import Create from "@material-ui/icons/Create.js";
 
 class ModalButton extends Component {
   render() {
-    return <Create onClick={this.props.onClick} />;
+    return <Create id="create-btn" onClick={this.props.onClick} />;
   }
 }
 

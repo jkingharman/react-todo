@@ -11,7 +11,9 @@ class TodoInput extends Component {
   }
 
   componentWillReceiveProps() {
-    if (this.props.modalIsOpen === false) { this.clearInputs() }
+    if (this.props.modalIsOpen === false) {
+      this.clearInputs();
+    }
   }
 
   clearInputs() {
@@ -62,11 +64,13 @@ class TodoInput extends Component {
     return (
       <div>
         <input
+          id="note-input"
           placeholder="Todo note"
           value={this.state.note}
           onChange={this.handleNoteChange}
         />
         <input
+          id="title-input"
           placeholder="Todo title"
           value={this.state.title}
           onChange={this.handleTitleChange}
