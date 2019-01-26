@@ -1,6 +1,7 @@
+let startingId = 0
+
 class Todo {
   constructor(title, note) {
-    this.startingId = 0;
     this.id = this.setId();
     this.title = title;
     this.note = note;
@@ -20,7 +21,7 @@ class Todo {
   }
 
   setId() {
-    return this.startingId++;
+    return startingId++;
   }
 }
 
