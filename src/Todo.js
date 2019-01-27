@@ -1,4 +1,4 @@
-let startingId = 0
+let startingId = 0;
 
 class Todo {
   constructor(title, note) {

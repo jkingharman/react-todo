@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Modal from "./Modal";
 import ModalButton from "./ModalButton";
 import Todo from "./Todo";
-import TodoComponent from "./TodoComponent";
-import TodoInput from "./TodoInput";
+import TodoList from "./TodoList";
+import TodoInputContainer from "./TodoInputContainer";
 
 class TodoContainer extends Component {
   constructor(props) {
@@ -37,17 +37,10 @@ class TodoContainer extends Component {
   render() {
     return (
       <div className="container">
-        <h2> Todos </h2>
-        <ul>
-          {this.state.todos.map(todo => (
-            <li key={todo.id}>
-              <TodoComponent todo={todo} onDelete={this.handleDelete} />
-            </li>
-          ))}
-        </ul>
+        <TodoList todos={this.state.todos} handleDelete={this.handleDelete} />
         <ModalButton onClick={this.handleClick} />
         <Modal isOpen={this.state.modalOpen} onClose={this.handleClick}>
-          <TodoInput
+          <TodoInputContainer
             onAdd={this.handleTodoAdd}
             modalIsOpen={this.state.modalOpen}
           />
