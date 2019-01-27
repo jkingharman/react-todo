@@ -1,36 +1,40 @@
-import React, { Component } from "react";
+import React from "react";
 import Add from "@material-ui/icons/Add.js";
 
-class TodoInput extends Component {
-
-  render() {
-    return (
-      <div>
-        <input
-          id="note-input"
-          placeholder="Todo note"
-          value={this.props.note}
-          onChange={this.props.handleNoteChange}
-        />
-        <input
-          id="title-input"
-          placeholder="Todo title"
-          value={this.props.title}
-          onChange={this.props.handleTitleChange}
-        />
-        <div
-          className="Flash"
-          style={{ display: this.props.validationFail ? "block" : "none" }}
-        >
-          Input can't be blank!
-        </div>
-        <Add
-          style={{ display: !this.props.validationFail ? "inline" : "none" }}
-          onClick={this.props.handleAdd}
-        />
+const TodoInput = ({
+  note,
+  title,
+  handleNoteChange,
+  handleTitleChange,
+  handleAdd,
+  validationFail
+}) => {
+  return (
+    <div>
+      <input
+        id="note-input"
+        placeholder="Todo note"
+        value={note}
+        onChange={handleNoteChange}
+      />
+      <input
+        id="title-input"
+        placeholder="Todo title"
+        value={title}
+        onChange={handleTitleChange}
+      />
+      <div
+        className="Flash"
+        style={{ display: validationFail ? "block" : "none" }}
+      >
+        Input can't be blank!
       </div>
-    );
-  }
-}
+      <Add
+        style={{ display: !validationFail ? "inline" : "none" }}
+        onClick={handleAdd}
+      />
+    </div>
+  );
+};
 
 export default TodoInput;

@@ -1,10 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import Create from "@material-ui/icons/Create.js";
 
-class ModalButton extends Component {
-  render() {
-    return <Create id="create-btn" onClick={this.props.onClick} />;
-  }
-}
+const ModalButton = ({ onClick }) => {
+  return <Create id="create-btn" onClick={onClick} />;
+};
 
 export default ModalButton;
