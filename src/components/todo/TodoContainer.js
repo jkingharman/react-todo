@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Modal from "./Modal";
 import ModalButton from "./ModalButton";
+import Link from "../router/Link.js"
 import Todo from "./Todo";
 import TodoList from "./TodoList";
 import TodoInputContainer from "./TodoInputContainer";
@@ -35,6 +36,7 @@ class TodoContainer extends Component {
             modalIsOpen={this.state.modalOpen}
           />
         </Modal>
+        <Link> Test </Link>
       </div>
     );
   }
