@@ -8,6 +8,7 @@ class TodoInputContainer extends Component {
     this.handleNoteChange = this.handleNoteChange.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
+    this.handleEmptyAdd = this.handleEmptyAdd.bind(this)
   }
 
   componentWillReceiveProps() {
@@ -52,21 +53,23 @@ class TodoInputContainer extends Component {
   }
 
   handleAdd() {
-    if (this.todoIsValid()) {
-      this.props.onAdd(this.state.note, this.state.title);
-      this.clearInputs();
-    } else {
-      this.flashError();
-    }
+    this.props.onAdd(this.state.note, this.state.title);
+    this.clearInputs();
+  }
+
+  handleEmptyAdd() {
+    this.flashError()
   }
 
   render() {
+    const handleAdd = this.todoIsValid() ? this.handleAdd : this.handleEmptyAdd
+
     return (
       <TodoInput
         note={this.state.note}
         title={this.state.title}
         validationFail={this.state.validationFail}
-        handleAdd={this.handleAdd}
+        handleAdd={handleAdd}
         handleNoteChange={this.handleNoteChange}
         handleTitleChange={this.handleTitleChange}
       />
