@@ -6,28 +6,18 @@ import TodoList from "./TodoList";
 import TodoInputContainer from "./TodoInputContainer";
 
 class TodoContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { modalOpen: false, todos: [] };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-    this.handleTodoAdd = this.handleTodoAdd.bind(this);
-  }
 
-  handleClick() {
-    this.setState({ modalOpen: !this.state.modalOpen });
-  }
+  state = { modalOpen: false, todos: [] };
 
-  handleDelete() {
-    let todoId = arguments[0];
+  handleClick = () => { this.setState({ modalOpen: !this.state.modalOpen }); }
+
+  handleDelete = (id) => {
     this.setState(state => ({
-      todos: this.state.todos.filter(todo => todo.id !== todoId)
+      todos: this.state.todos.filter(todo => todo.id !== id)
     }));
   }
 
-  handleTodoAdd() {
-    let todoNote = arguments[0];
-    let todoTitle = arguments[1];
+  handleTodoAdd = (todoNote, todoTitle) => {
     this.setState(state => ({
       todos: this.state.todos.concat(new Todo(todoTitle, todoNote)),
       modalOpen: false

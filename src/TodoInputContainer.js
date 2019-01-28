@@ -2,13 +2,28 @@ import React, { Component } from "react";
 import TodoInput from "./TodoInput";
 
 class TodoInputContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { note: "", title: "", errorMessage: "" };
-    this.handleNoteChange = this.handleNoteChange.bind(this);
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleAdd = this.handleAdd.bind(this);
-    this.handleEmptyAdd = this.handleEmptyAdd.bind(this)
+
+  state = { note: "", title: "", errorMessage: "" };
+
+  handleTitleChange = (e) => {
+    this.setState({
+      title: e.target.value
+    });
+  }
+
+  handleNoteChange = (e) => {
+    this.setState({
+      note: e.target.value
+    });
+  }
+
+  handleAdd = (e) => {
+    this.props.onAdd(this.state.note, this.state.title);
+    this.clearInputs();
+  }
+
+  handleEmptyAdd = (e) => {
+    this.setError()
   }
 
   componentWillReceiveProps() {
@@ -38,27 +53,6 @@ class TodoInputContainer extends Component {
         1500
       );
     });
-  }
-
-  handleTitleChange(e) {
-    this.setState({
-      title: e.target.value
-    });
-  }
-
-  handleNoteChange(e) {
-    this.setState({
-      note: e.target.value
-    });
-  }
-
-  handleAdd() {
-    this.props.onAdd(this.state.note, this.state.title);
-    this.clearInputs();
-  }
-
-  handleEmptyAdd() {
-    this.setError()
   }
 
   render() {

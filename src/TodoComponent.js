@@ -2,15 +2,12 @@ import React, { Component } from "react";
 import Delete from "@material-ui/icons/Delete.js";
 
 class TodoComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { todoDone: this.props.todo.getDoneStatus() };
-    this.handleClick = this.handleClick.bind(this);
-  }
 
-  handleClick() {
+  state = { todoDone: this.props.todo.getDoneStatus() };
+
+  handleClick = () => {
     this.props.todo.updateDoneStatus();
-    this.setState({ todoDone: !this.state.todoDone });
+    this.setState({todoDone: !this.state.todoDone })
   }
 
   render() {
@@ -24,7 +21,7 @@ class TodoComponent extends Component {
         <p>{this.props.todo.note}</p>
         <Delete
           style={{ marginLeft: "300px" }}
-          onClick={this.props.onDelete.bind(null, this.props.todo.getId())}
+          onClick={() => { this.props.onDelete(this.props.todo.getId()) } }
         />
       </div>
     );
