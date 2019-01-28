@@ -4,7 +4,7 @@ import TodoInput from "./TodoInput";
 class TodoInputContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = { note: "", title: "", validationFail: false };
+    this.state = { note: "", title: "", errorMessage: "" };
     this.handleNoteChange = this.handleNoteChange.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
@@ -31,10 +31,10 @@ class TodoInputContainer extends Component {
     }
   }
 
-  flashError() {
-    this.setState({ validationFail: !this.state.validationFail }, () => {
+  setError() {
+    this.setState({ errorMessage: "Input can't be blank!" }, () => {
       setTimeout(
-        () => this.setState({ validationFail: !this.state.validationFail }),
+        () => this.setState({ errorMessage: "" }),
         1500
       );
     });
@@ -58,7 +58,7 @@ class TodoInputContainer extends Component {
   }
 
   handleEmptyAdd() {
-    this.flashError()
+    this.setError()
   }
 
   render() {
@@ -68,7 +68,7 @@ class TodoInputContainer extends Component {
       <TodoInput
         note={this.state.note}
         title={this.state.title}
-        validationFail={this.state.validationFail}
+        errorMessage={this.state.errorMessage}
         handleAdd={handleAdd}
         handleNoteChange={this.handleNoteChange}
         handleTitleChange={this.handleTitleChange}

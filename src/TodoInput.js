@@ -7,7 +7,7 @@ const TodoInput = ({
   handleNoteChange,
   handleTitleChange,
   handleAdd,
-  validationFail
+  errorMessage
 }) => {
   return (
     <div>
@@ -25,12 +25,12 @@ const TodoInput = ({
       />
       <div
         className="Flash"
-        style={{ display: validationFail ? "block" : "none" }}
+        style={{ display: errorMessage ? "block" : "none" }}
       >
         Input can't be blank!
       </div>
       <Add
-        style={{ display: !validationFail ? "inline" : "none" }}
+        style={{ display: !errorMessage ? "inline" : "none" }}
         onClick={handleAdd}
       />
     </div>
