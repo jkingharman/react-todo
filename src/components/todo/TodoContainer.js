@@ -36,7 +36,7 @@ class TodoContainer extends Component {
             modalIsOpen={this.state.modalOpen}
           />
         </Modal>
-        <Link> Test </Link>
+        <Link to="/test" onClick={this.context}> Test </Link>
       </div>
     );
   }
