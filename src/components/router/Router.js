@@ -5,11 +5,20 @@ const Context = React.createContext("")
 
 class Router extends Component {
 
+  componentDidMount() {
+     window.onpopstate = this.handleBackAndForward;
+  }
+
   state = {currentPath: "/"}
 
   handleLinkClick = (path) => {
     history.pushState(null, "", path)
-    this.setState(currentPath: path)
+    this.setState({currentPath: path})
+  }
+
+  handleBackAndForward = () => {
+    const path = document.location.pathname
+    this.setState({currentPath: path.substring(path.lastIndexOf('/'))})
   }
 
   render() {
