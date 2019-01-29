@@ -5,11 +5,12 @@ class Link extends Component {
 
   handleClick = (e) => {
     e.preventDefault()
+    this.context(this.props.to)
   }
 
   render() {
     return (
-      <a href={this.props.to} onClick={this.props.handleLinkClick}> {this.props.children} {this.context} </a>
+      <a href={this.props.to} onClick={this.handleClick}> {this.props.children} </a>
     );
   }
 }

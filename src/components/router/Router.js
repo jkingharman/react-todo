@@ -5,14 +5,17 @@ const Context = React.createContext("")
 
 class Router extends Component {
 
-  handleLinkClick = (to) => {
-    history.pushState(null, "", to)
+  state = {currentPath: "/"}
+
+  handleLinkClick = (path) => {
+    history.pushState(null, "", path)
+    this.setState(currentPath: path)
   }
 
   render() {
     return (
       <div>
-        <RouterContext.Provider value="test">
+        <RouterContext.Provider value={this.handleLinkClick}>
           {this.props.children}
         </RouterContext.Provider>
       </div>
