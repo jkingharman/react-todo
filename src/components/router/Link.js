@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import  RouterContext  from "../router/RouterContext.js"
+import { RouterContext }  from "./Router";
 
 class Link extends Component {
 

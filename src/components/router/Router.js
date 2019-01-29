@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import RouterContext from "./RouterContext.js"
 
 const history = window.history
+const Context = React.createContext("")
 
 class Router extends Component {
 
@@ -21,3 +21,4 @@ class Router extends Component {
 }
 
 export default Router;
+export const RouterContext = Context;
