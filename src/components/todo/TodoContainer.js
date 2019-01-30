@@ -4,12 +4,12 @@ import ModalButton from "./ModalButton";
 import Link from "../router/Link.js"
 import Todo from "./Todo";
 import TodoList from "./TodoList";
+import { RouterContext }  from "../router/Router";
 import TodoInputContainer from "./TodoInputContainer";
 
 class TodoContainer extends Component {
 
   componentWillMount() {
-    console.log(this.state.todos)
     this.fetchTodos()
   }
 
@@ -45,6 +45,22 @@ class TodoContainer extends Component {
     }));
   }
 
+  filterTodos(todos, path) {
+    switch(path) {
+      case "/":
+        return todos
+        break;
+      case "/undone":
+        return todos.filter(todo => !todo.done)
+        break;
+      case "/done":
+        return todos.filter(todo => todo.done)
+        break
+      default:
+        return todos
+    }
+  }
+
   render() {
     if (this.state.error) {
       return (
@@ -53,9 +69,10 @@ class TodoContainer extends Component {
         </div>
       )
     } else {
+      const displayTodos = this.filterTodos(this.state.todos, this.context.currentPath)
       return (
         <div className="container">
-          <TodoList todos={this.state.todos} handleDelete={this.handleDelete} />
+          <TodoList todos={displayTodos} handleDelete={this.handleDelete} />
           <ModalButton onClick={this.handleClick} />
           <Modal isOpen={this.state.modalOpen} onClose={this.handleClick}>
             <TodoInputContainer
@@ -63,11 +80,15 @@ class TodoContainer extends Component {
               modalIsOpen={this.state.modalOpen}
             />
           </Modal>
-          <Link to="/test"> Test </Link>
+          <Link to="/done"> Done </Link>
+          <Link to="/undone"> Undone </Link>
+          <Link to="/"> All </Link>
         </div>
       );
     }
   }
 }
+
+TodoContainer.contextType = RouterContext;
 
 export default TodoContainer;

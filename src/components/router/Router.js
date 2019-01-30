@@ -11,6 +11,13 @@ class Router extends Component {
 
   state = {currentPath: "/"}
 
+  getContext() {
+    return {
+      handleLinkClick: this.handleLinkClick,
+      currentPath: this.state.currentPath
+    }
+  }
+
   handleLinkClick = (path) => {
     history.pushState(null, "", path)
     this.setState({currentPath: path})
@@ -24,7 +31,7 @@ class Router extends Component {
   render() {
     return (
       <div>
-        <RouterContext.Provider value={this.handleLinkClick}>
+        <RouterContext.Provider value={this.getContext()}>
           {this.props.children}
         </RouterContext.Provider>
       </div>

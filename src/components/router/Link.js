@@ -5,7 +5,7 @@ class Link extends Component {
 
   handleClick = (e) => {
     e.preventDefault()
-    this.context(this.props.to)
+    this.context.handleLinkClick(this.props.to)
   }
 
   render() {
