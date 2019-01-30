@@ -1,65 +1,47 @@
 import React, { Component } from "react";
 import Modal from "./Modal";
 import ModalButton from "./ModalButton";
-import Link from "../router/Link.js"
+import Link from "../router/Link.js";
 import Todo from "./Todo";
 import TodoList from "./TodoList";
-import { RouterContext }  from "../router/Router";
+
+import {
+  fetchTodos,
+  addTodo,
+  filterTodosByPath,
+  genTodoId,
+  removeTodo
+} from "../../lib/todoHelpers.js";
+
+import { RouterContext } from "../router/Router";
 import TodoInputContainer from "./TodoInputContainer";
 
 class TodoContainer extends Component {
-
   componentWillMount() {
-    this.fetchTodos()
+    fetchTodos(this);
   }
 
   state = { modalOpen: false, todos: [], error: "" };
 
-  fetchTodos() {
-    const baseUrl = 'http://localhost:8080/todos'
-    fetch(baseUrl)
-      .then(res => { res.json().then(json => { this.setState({todos: json}) }) })
-        .catch(err => { this.setState({error: "Error! Try inspect db.json"})})
-  }
+  handleClick = () => {
+    this.setState({ modalOpen: !this.state.modalOpen });
+  };
 
-  handleClick = () => { this.setState({ modalOpen: !this.state.modalOpen }); }
-
-  handleDelete = (id) => {
+  handleDelete = id => {
     this.setState(state => ({
-      todos: this.state.todos.filter(todo => todo.id !== id)
+      todos: removeTodo(this.state.todos, id)
     }));
-  }
-
-  getTodoId() {
-    if (!Array.isArray(this.state.todos) || !this.state.todos.length) {
-      return 0
-    } else {
-      return Math.floor(Math.random()*100000)
-    }
-  }
+  };
 
   handleTodoAdd = (todoNote, todoTitle) => {
     this.setState(state => ({
-      todos: this.state.todos.concat(new Todo(this.getTodoId(), todoTitle, todoNote)),
+      todos: addTodo(
+        this.state.todos,
+        new Todo(genTodoId(), todoNote, todoTitle)
+      ),
       modalOpen: false
     }));
-  }
-
-  filterTodos(todos, path) {
-    switch(path) {
-      case "/":
-        return todos
-        break;
-      case "/undone":
-        return todos.filter(todo => !todo.done)
-        break;
-      case "/done":
-        return todos.filter(todo => todo.done)
-        break
-      default:
-        return todos
-    }
-  }
+  };
 
   render() {
     if (this.state.error) {
@@ -67,9 +49,12 @@ class TodoContainer extends Component {
         <div className="container">
           <p> {this.state.error} </p>
         </div>
-      )
+      );
     } else {
-      const displayTodos = this.filterTodos(this.state.todos, this.context.currentPath)
+      const displayTodos = filterTodosByPath(
+        this.state.todos,
+        this.context.currentPath
+      );
       return (
         <div className="container">
           <TodoList todos={displayTodos} handleDelete={this.handleDelete} />

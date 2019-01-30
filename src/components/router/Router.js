@@ -1,32 +1,31 @@
 import React, { Component } from "react";
 
-const history = window.history
-const Context = React.createContext("")
+const history = window.history;
+const Context = React.createContext("");
 
 class Router extends Component {
-
   componentDidMount() {
-     window.onpopstate = this.handleBackAndForward;
+    window.onpopstate = this.handleBackAndForward;
   }
 
-  state = {currentPath: "/"}
+  state = { currentPath: "/" };
 
   getContext() {
     return {
       handleLinkClick: this.handleLinkClick,
       currentPath: this.state.currentPath
-    }
+    };
   }
 
-  handleLinkClick = (path) => {
-    history.pushState(null, "", path)
-    this.setState({currentPath: path})
-  }
+  handleLinkClick = path => {
+    history.pushState(null, "", path);
+    this.setState({ currentPath: path });
+  };
 
   handleBackAndForward = () => {
-    const path = document.location.pathname
-    this.setState({currentPath: path.substring(path.lastIndexOf('/'))})
-  }
+    const path = document.location.pathname;
+    this.setState({ currentPath: path.substring(path.lastIndexOf("/")) });
+  };
 
   render() {
     return (
