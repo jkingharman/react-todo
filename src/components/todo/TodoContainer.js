@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Modal from "./Modal";
 import ModalButton from "./ModalButton";
-import Link from "../router/Link.js";
 import Todo from "./Todo";
 import TodoList from "./TodoList";
 
@@ -44,6 +43,11 @@ class TodoContainer extends Component {
   };
 
   render() {
+    const displayTodos = filterTodosByPath(
+      this.state.todos,
+      this.context.currentPath
+    );
+
     if (this.state.error) {
       return (
         <div className="container">
@@ -51,10 +55,6 @@ class TodoContainer extends Component {
         </div>
       );
     } else {
-      const displayTodos = filterTodosByPath(
-        this.state.todos,
-        this.context.currentPath
-      );
       return (
         <div className="container">
           <TodoList todos={displayTodos} handleDelete={this.handleDelete} />
@@ -65,9 +65,6 @@ class TodoContainer extends Component {
               modalIsOpen={this.state.modalOpen}
             />
           </Modal>
-          <Link to="/done"> Done </Link>
-          <Link to="/undone"> Undone </Link>
-          <Link to="/"> All </Link>
         </div>
       );
     }

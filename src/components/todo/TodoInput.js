@@ -27,7 +27,7 @@ const TodoInput = ({
         className="Flash"
         style={{ display: errorMessage ? "block" : "none" }}
       >
-        {this.state.errorMessage}
+        {errorMessage}
       </div>
       <Add
         style={{ display: !errorMessage ? "inline" : "none" }}
