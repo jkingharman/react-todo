@@ -5,7 +5,9 @@ import Todo from "./Todo";
 import TodoList from "./TodoList";
 
 import  {
-  loadTodos
+  loadTodos,
+  createTodo,
+  destroyTodo
 } from "../../lib/crudService.js"
 
 import {
@@ -37,6 +39,7 @@ class TodoContainer extends Component {
     this.setState(state => ({
       todos: removeTodo(this.state.todos, id)
     }));
+    destroyTodo(id).catch(this.handleError)
   };
 
   handleError = () => {
@@ -44,13 +47,15 @@ class TodoContainer extends Component {
   }
 
   handleTodoAdd = (todoNote, todoTitle) => {
+    const newTodo = new Todo(genTodoId(), todoNote, todoTitle)
     this.setState(state => ({
       todos: addTodo(
         this.state.todos,
-        new Todo(genTodoId(), todoNote, todoTitle)
+        newTodo
       ),
       modalOpen: false
     }));
+    createTodo(newTodo).catch(this.handleError)
   };
 
   render() {

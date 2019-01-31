@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Delete from "@material-ui/icons/Delete.js";
+import { saveTodo } from "../../lib/crudService.js"
 
 class TodoComponent extends Component {
   state = { todoDone: this.props.todo.done };
@@ -7,6 +8,7 @@ class TodoComponent extends Component {
   handleClick = () => {
     this.props.todo.done = !this.props.todo.done;
     this.setState({ todoDone: !this.state.todoDone });
+    saveTodo(this.props.todo).catch(console.log("error!"))
   };
 
   render() {

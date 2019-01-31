@@ -1,3 +1,22 @@
 {
-  "todos": [{"id": 0, "note": "test", "title": "test", "done": false}, {"id": 1, "note": "test", "title": "test", "done": false}, {"id": 2, "note": "test", "title": "test", "done": true} ]
+  "todos": [
+    {
+      "id": 0,
+      "note": "test",
+      "title": "test",
+      "done": true
+    },
+    {
+      "id": 1,
+      "note": "test",
+      "title": "test",
+      "done": false
+    },
+    {
+      "id": 2,
+      "note": "test",
+      "title": "test",
+      "done": false
+    }
+  ]
 }
