@@ -19,6 +19,7 @@ it("allows the user to create a todo", () => {
 
   expect(component.find(".Todo h4").text()).toEqual("note");
   expect(component.find(".Todo p").text()).toEqual("title");
+  component.unmount()
 });
 
 it("allows a user to delete a todo", () => {
@@ -35,6 +36,7 @@ it("allows a user to delete a todo", () => {
   component.find("DeleteIcon svg").simulate("click");
 
   expect(component.find(".Todo").exists()).toBe(false);
+  component.unmount()
 });
 
 it("prevents a user from creating incomplete todos", () => {
@@ -46,4 +48,5 @@ it("prevents a user from creating incomplete todos", () => {
   component.find("AddIcon svg").simulate("click");
 
   expect(component.find(".Flash").prop("style")).toEqual({ display: "block" });
+  component.unmount()
 });
