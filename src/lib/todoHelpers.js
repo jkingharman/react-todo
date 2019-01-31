@@ -20,19 +20,6 @@ export const todoIsValid = (note, title) => {
   }
 };
 
-export const fetchTodos = component => {
-  const baseUrl = "http://localhost:8080/todos";
-  fetch(baseUrl)
-    .then(res => {
-      res.json().then(json => {
-        component.setState({ todos: json });
-      });
-    })
-    .catch(err => {
-      component.setState({ error: "Error! Try inspect db.json" });
-    });
-};
-
 export const filterTodosByPath = (todos, path) => {
   switch (path) {
     case "/":

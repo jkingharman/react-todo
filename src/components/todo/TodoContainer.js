@@ -4,8 +4,11 @@ import ModalButton from "./ModalButton";
 import Todo from "./Todo";
 import TodoList from "./TodoList";
 
+import  {
+  loadTodos
+} from "../../lib/crudService.js"
+
 import {
-  fetchTodos,
   addTodo,
   filterTodosByPath,
   genTodoId,
@@ -17,7 +20,11 @@ import TodoInputContainer from "./TodoInputContainer";
 
 class TodoContainer extends Component {
   componentWillMount() {
-    fetchTodos(this);
+    loadTodos()
+      .then(json => {
+        this.setState({todos: json})
+      })
+        .catch(this.handleError);
   }
 
   state = { modalOpen: false, todos: [], error: "" };
@@ -31,6 +38,10 @@ class TodoContainer extends Component {
       todos: removeTodo(this.state.todos, id)
     }));
   };
+
+  handleError = () => {
+    this.setState({ error: "Error! Try inspect db.json" });
+  }
 
   handleTodoAdd = (todoNote, todoTitle) => {
     this.setState(state => ({
