@@ -12,13 +12,13 @@ const TodoInput = ({
   return (
     <div>
       <input
-        id="note-input"
+        id="NoteInput"
         placeholder="Todo note"
         value={note}
         onChange={handleNoteChange}
       />
       <input
-        id="title-input"
+        id="TitleInput"
         placeholder="Todo title"
         value={title}
         onChange={handleTitleChange}
