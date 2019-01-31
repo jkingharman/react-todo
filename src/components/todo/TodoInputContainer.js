@@ -37,7 +37,7 @@ class TodoInputContainer extends Component {
   }
 
   setError() {
-    this.setState({ errorMessage: "Input can't be blank!" }, () => {
+    this.setState({ errorMessage: "Input cannot be blank!" }, () => {
       setTimeout(() => this.setState({ errorMessage: "" }), 1500);
     });
   }

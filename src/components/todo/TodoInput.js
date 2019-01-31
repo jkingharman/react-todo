@@ -27,7 +27,7 @@ const TodoInput = ({
         className="Flash"
         style={{ display: errorMessage ? "block" : "none" }}
       >
-        Input can't be blank!
+        {this.state.errorMessage}
       </div>
       <Add
         style={{ display: !errorMessage ? "inline" : "none" }}
