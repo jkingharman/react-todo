@@ -24,13 +24,10 @@ export const filterTodosByPath = (todos, path) => {
   switch (path) {
     case "/":
       return todos;
-      break;
     case "/undone":
       return todos.filter(todo => !todo.done);
-      break;
     case "/done":
       return todos.filter(todo => todo.done);
-      break;
     default:
       return todos;
   }

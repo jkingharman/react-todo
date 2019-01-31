@@ -22,8 +22,8 @@ class TodoComponent extends Component {
         <p>{this.props.todo.note}</p>
         <Delete
           style={{ marginLeft: "300px" }}
-          onClick={() => {
-            this.props.onDelete(this.props.todo.id);
+          onClick={(event) => {
+            this.props.onDelete(this.props.todo.id); event.stopPropagation()
           }}
         />
       </div>

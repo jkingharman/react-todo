@@ -31,7 +31,7 @@ class TodoContainer extends Component {
     this.setState({ modalOpen: !this.state.modalOpen });
   };
 
-  handleDelete = id => {
+  handleDelete = (id) => {
     this.setState(state => ({
       todos: removeTodo(this.state.todos, id)
     }));
