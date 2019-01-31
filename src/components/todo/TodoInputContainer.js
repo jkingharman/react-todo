@@ -26,7 +26,7 @@ class TodoInputContainer extends Component {
     this.setError();
   };
 
-  componentWillReceiveProps() {
+  getDerivedStateFromProps() {
     if (this.props.modalIsOpen === false) {
       this.clearInputs();
     }

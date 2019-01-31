@@ -17,7 +17,7 @@ import { RouterContext } from "../router/Router";
 import TodoInputContainer from "./TodoInputContainer";
 
 class TodoContainer extends Component {
-  componentWillMount() {
+  componentDidMount() {
     loadTodos()
       .then(json => {
         this.setState({ todos: json });
