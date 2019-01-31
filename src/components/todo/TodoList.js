@@ -5,7 +5,6 @@ import Link from "../router/Link.js";
 const TodoList = ({ todos, handleDelete }) => {
   return (
     <div>
-      <h2> Todos </h2>
       <ul>
         {todos.map(todo => (
           <li key={todo.id}>

@@ -73,14 +73,15 @@ class TodoContainer extends Component {
     } else {
       return (
         <div className="container">
-          <TodoList todos={displayTodos} handleDelete={this.handleDelete} />
-          <ModalButton onClick={this.handleClick} />
+          <h2> Todos </h2>
           <Modal isOpen={this.state.modalOpen} onClose={this.handleClick}>
             <TodoInputContainer
               onAdd={this.handleTodoAdd}
               modalIsOpen={this.state.modalOpen}
             />
           </Modal>
+          <TodoList todos={displayTodos} handleDelete={this.handleDelete} />
+          <ModalButton onClick={this.handleClick} />
         </div>
       );
     }

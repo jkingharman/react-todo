@@ -1,21 +1,9 @@
 {
   "todos": [
     {
-      "id": 0,
-      "note": "test",
-      "title": "test",
-      "done": true
-    },
-    {
-      "id": 1,
-      "note": "test",
-      "title": "test",
-      "done": false
-    },
-    {
-      "id": 2,
-      "note": "test",
-      "title": "test",
+      "id": 60961,
+      "title": "Test",
+      "note": "Test",
       "done": false
     }
   ]

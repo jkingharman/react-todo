@@ -22,6 +22,10 @@
    min-width: 200px;
  }
 
+ .Modal svg {
+   padding-top: 0px;
+ }
+
  .Overlay {
    position: fixed;
    top: 0;
@@ -57,6 +61,10 @@
   padding-top: 20px;
 }
 
+#CreateBtn {
+  padding-bottom: 20px;
+}
+
 ul {
   list-style: none;
   padding-left: 0;
@@ -64,6 +72,19 @@ ul {
 
 svg {
   padding-top: 20px;
+}
+
+a {
+  margin-left: 10px;
+  margin-right :10px;
+  text-decoration: none;
+  cursor: default;
+  color: white;
+  font-size: 15px;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 input {

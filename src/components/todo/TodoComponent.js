@@ -8,7 +8,7 @@ class TodoComponent extends Component {
   handleClick = () => {
     this.props.todo.done = !this.props.todo.done;
     this.setState({ todoDone: !this.state.todoDone });
-    saveTodo(this.props.todo).catch(console.log("error!"))
+    saveTodo(this.props.todo)
   };
 
   render() {
