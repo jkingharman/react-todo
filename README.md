@@ -8,22 +8,16 @@ For fun and learning. The idea was to get more comfortable with React's API and 
 of ES6. I learnt new stuff about Promise handling, Arrow functions, Async CRUD, Context and
 how to synch app state with the browser.
 
-## Functionality ##
+## What's it do? ##
 
 * CRUD for todos.
 * Allow todos to be marked complete/incomplete.
 * Filter todos on whether they're complete/incomplete.
 * Handle moving back and forward in the browser.
 
-## Install ##
+## How do I get going? ##
 
-**With Yarn:** ```yarn install```
-
-**With NPM:** ```npm install```
-
-## Dev use ##
-
-Run the local ```create-react-app``` development server.
+First checkout the code and run the local ```create-react-app``` development server:
 
 **With Yarn:** ```yarn start```
 
@@ -31,9 +25,9 @@ Run the local ```create-react-app``` development server.
 
 Then run the json server: ```json-server -p 8080 --watch db.json```
 
-Open http://localhost:3000 in your browser and you should now see the app.
+Now open http://localhost:3000 in your browser and you should now see the app.
 
-## Extra Dependencies ##
+## Dependencies ##
 
 Besides what CRA brings in:
 
