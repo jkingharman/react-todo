@@ -1,3 +1,10 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": 89889,
+      "title": "Exercise for fun and profit.",
+      "note": "Go skate.",
+      "done": false
+    }
+  ]
 }
