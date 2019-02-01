@@ -15,9 +15,9 @@ how to synch app state with the browser.
 * Filter todos on whether they're complete/incomplete.
 * Handle moving back and forward in the browser.
 
-## How do I get going? ##
+## How do I start? ##
 
-First checkout the code and run the local ```create-react-app``` development server:
+First checkout the code, install (```yarn install``` or ```npm install```) and run the local ```create-react-app``` development server:
 
 **With Yarn:** ```yarn start```
 
