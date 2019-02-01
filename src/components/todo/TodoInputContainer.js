@@ -18,7 +18,7 @@ class TodoInputContainer extends Component {
   };
 
   handleAdd = e => {
-    this.props.onAdd(this.state.note, this.state.title);
+    this.props.onAdd(this.state.title, this.state.note);
     this.clearInputs();
   };
 
