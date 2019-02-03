@@ -1,6 +1,6 @@
 # CRA Todo #
 
-Just another throwaway todo app, written to use React.
+A first real attempt at using React.
 
 ## Why? ##
 
