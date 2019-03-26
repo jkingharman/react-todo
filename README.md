@@ -1,7 +1,5 @@
 # CRA Todo #
 
-A first real attempt at using React.
-
 ## Why? ##
 
 For fun and learning. The idea was to get more comfortable with React's API and parts
