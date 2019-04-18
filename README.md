@@ -3,7 +3,7 @@
 ## Why? ##
 
 For fun and learning. The idea was to get more comfortable with React's API and parts
-of ES6. I learnt new stuff about Promise handling, Arrow functions, Async CRUD, Context and
+of ES6. I learnt new stuff about Promise handling, arrow functions, async CRUD, React Context and
 how to synch app state with the browser.
 
 ## What's it do? ##
