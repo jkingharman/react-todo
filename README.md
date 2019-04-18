@@ -23,7 +23,7 @@ First checkout the code, install (```yarn install``` or ```npm install```) and r
 
 Then run the json server: ```json-server -p 8080 --watch db.json```
 
-Now open http://localhost:3000 in your browser and you should now see the app.
+Now open http://localhost:3000 in your browser and you should see the app.
 
 ## Dependencies ##
 
